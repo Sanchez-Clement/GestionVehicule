@@ -1,6 +1,5 @@
 <?php
-require "entites/Vehicule.php";
+require "controleur/accueil.php";
 
-$vbj= new Vehicule;
-echo $vbj->getType()
+
 ?>
