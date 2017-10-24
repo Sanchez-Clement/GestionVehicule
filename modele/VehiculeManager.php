@@ -39,6 +39,19 @@ class VehiculeManager
 
     return $vehicules;
   }
+
+  public function addVehicule($type,$brand,$modele,$immatriculation,$price,$description) {
+    $reponse=$this->bdd->prepare('INSERT INTO vehicule(type,brand,modele,immatriculation,price,description) VALUES(:type,:brand,:modele,:immatriculation,:price,:description)');
+    $reponse->execute(array(
+'type' => $type,
+'brand' => $brand,
+'modele' => $modele,
+'immatriculation' => $immatriculation,
+'price' => $price,
+'description' => $description
+
+  ));
+  }
 }
 
  ?>
