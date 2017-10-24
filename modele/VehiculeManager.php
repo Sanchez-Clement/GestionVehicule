@@ -73,6 +73,13 @@ class VehiculeManager
 
   ));
   }
+
+  public function existImmatriculation($immatriculation) {
+    $reponse= $this->bdd->prepare('SELECT COUNT(*) FROM vehicule WHERE immatriculation = :immatriculation');
+ $reponse->execute([':immatriculation' => $immatriculation]);
+
+ return (bool) $reponse->fetchColumn();
+  }
 }
 
  ?>
