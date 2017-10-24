@@ -52,6 +52,13 @@ class VehiculeManager
 
   ));
   }
+
+  public function deleteVehicule($id) {
+    $reponse=$this->bdd->prepare('DELETE FROM vehicule WHERE id_vehicule = :id');
+    $reponse->execute(array (
+      'id' => $id
+    ));
+  }
 }
 
  ?>
