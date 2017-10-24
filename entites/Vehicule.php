@@ -4,7 +4,7 @@
  */
 abstract class Vehicule
 {
-    protected $id;
+    protected $id_vehicule;
     protected $type ;
     protected $brand;
     protected $modele;
@@ -17,7 +17,7 @@ abstract class Vehicule
         $this->hydrate($donnees);
     }
 
-    public function hydrate(array $donnes)
+    public function hydrate(array $donnees)
     {
       foreach ($donnees as $key => $value) {
           $method = "set" . ucfirst($key) ;
@@ -29,7 +29,7 @@ abstract class Vehicule
 
     public function getId()
     {
-        return $this->id;
+        return $this->id_vehicule;
     }
 
     public function getType()
@@ -64,10 +64,10 @@ abstract class Vehicule
      *
      * @return self
      */
-    public function setId($id)
+    public function setId_vehicule($id_vehicule)
     {
-        $id = (int)$id;
-        $this->id = $id;
+        $id_vehicule = (int)$id_vehicule;
+        $this->id_vehicule = $id_vehicule;
 
         return $this;
     }

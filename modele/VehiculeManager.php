@@ -28,7 +28,7 @@ class VehiculeManager
           break;
 
         case 'Camion':
-          $vehicules[]= new Camion($donnes);
+          $vehicules[]= new Camion($donnees);
           break;
 
         default:

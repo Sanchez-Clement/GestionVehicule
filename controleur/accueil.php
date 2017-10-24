@@ -8,5 +8,8 @@ function chargerClasse($classname)
 
 spl_autoload_register('chargerClasse');
 require "modele/connexion_sql.php";
-require "modele/vehiculeManager.php";
+require "modele/VehiculeManager.php";
+$manager = new VehiculeManager ($bdd);
+$vehicules = $manager->getVehicules();
+var_dump($vehicules);
 ?>
