@@ -5,10 +5,7 @@
 class Voiture extends Vehicule
 {
   protected static $wheels = 4;
-  function __construct(array $donnees)
-  {
-    parent::__construct($donnees);
-  }
+  
 
   public function getWheels()
   {

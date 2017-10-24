@@ -1,5 +1,5 @@
 <?php
-require "controleur/accueil.php";
+header('Location: controleur/accueil.php');
 
 
 ?>

@@ -5,10 +5,7 @@
 class Moto extends Vehicule
 {
   protected static $wheels = 2;
-  function __construct(array $donnees)
-  {
-    parent::__construct($donnees);
-  }
+
 
   public function getWheels()
   {
