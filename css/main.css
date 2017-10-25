@@ -1,3 +1,7 @@
 #entete a {
   color: black;
 }
+
+#tablehome th, #tablehome td{
+  min-width: 100px;
+}

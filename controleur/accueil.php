@@ -12,5 +12,7 @@ require "../modele/connexion_sql.php";
 require "../modele/VehiculeManager.php";
 $manager = new VehiculeManager ($bdd);
 $vehicules = $manager->getVehicules();
-var_dump($vehicules);
+
+require_once"../vue/accueil.php";
+require_once"../includes/footer.php";
 ?>
