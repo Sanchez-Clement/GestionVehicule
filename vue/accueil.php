@@ -21,7 +21,7 @@
   <td><?php echo $vehicule->getModele() ?></td>
   <td><?php echo $vehicule->getImmatriculation() ?></td>
   <td><?php echo $vehicule->getPrice() ?></td>
-  <td><a href="#">Voir détail</a></td>
+  <td><a href="../controleur/detailVehicule.php?id=<?php echo $vehicule->getId() ?>">Voir détail</a></td>
   <td><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
   <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i>
 </a></td>

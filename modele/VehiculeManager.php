@@ -80,6 +80,14 @@ class VehiculeManager
 
  return (bool) $reponse->fetchColumn();
   }
+
+  public function getThisVehicule($id) {
+    $reponse = $this->bdd->prepare('SELECT * FROM vehicule WHERE id_vehicule = :id');
+    $reponse->execute([':id' => $id]);
+    $donnees = $reponse->fetch(PDO::FETCH_ASSOC);
+    $vehicule = new $donnees['type']($donnees);
+    return $vehicule;
+  }
 }
 
  ?>
