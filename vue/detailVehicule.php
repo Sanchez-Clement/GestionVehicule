@@ -30,7 +30,7 @@
 </table>
 <div class="card-footer d-flex justify-content-around">
   <a href="../controleur/editVehicule.php?id=<?php echo $vehicule->getId() ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-  <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+  <a href="../controleur/deleteVehicule.php?id=<?php echo $vehicule->getId() ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
 
 </div>
 </section>
