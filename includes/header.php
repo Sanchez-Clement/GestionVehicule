@@ -24,5 +24,5 @@
           <a class="nav-item text-dark" href=""><i class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
         </nav>
       </header>
-<main>
+<main class="container">
 <h1 class="text-center">Gestion de véhicules</h1>
