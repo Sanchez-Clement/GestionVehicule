@@ -25,4 +25,3 @@
         </nav>
       </header>
 <main class="container">
-<h1 class="text-center">Gestion de véhicules</h1>

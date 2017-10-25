@@ -1,3 +1,4 @@
+<h1 class="text-center">Gestion de véhicules</h1>
 <table class="table-hover table table-responsive" id="tablehome">
 <thead >
   <th class="text-center">Type</th>
@@ -22,9 +23,8 @@
   <td><?php echo $vehicule->getImmatriculation() ?></td>
   <td><?php echo $vehicule->getPrice() ?></td>
   <td><a href="../controleur/detailVehicule.php?id=<?php echo $vehicule->getId() ?>">Voir détail</a></td>
-  <td><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-  <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i>
-</a></td>
+  <td><a href="../controleur/editVehicule.php?id=<?php echo $vehicule->getId() ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+  <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 </tr>
 <?php } ?>
  </tbody>

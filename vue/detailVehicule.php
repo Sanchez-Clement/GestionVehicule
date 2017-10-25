@@ -1,6 +1,8 @@
 <section class="card">
 <h2 class="text-center"><?php echo $vehicule->getImmatriculation() ?></h2>
+
 <table class="table">
+
   <tr>
     <th>Type</th>
     <td><?php echo $vehicule->getType() ?></td>
@@ -27,7 +29,7 @@
   </tr>
 </table>
 <div class="card-footer d-flex justify-content-around">
-  <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+  <a href="../controleur/editVehicule.php?id=<?php echo $vehicule->getId() ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
   <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
 
 </div>
