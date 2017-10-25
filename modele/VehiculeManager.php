@@ -81,6 +81,13 @@ class VehiculeManager
  return (bool) $reponse->fetchColumn();
   }
 
+  public function existId($id) {
+    $reponse= $this->bdd->prepare('SELECT COUNT(*) FROM vehicule WHERE id_vehicule = :id');
+ $reponse->execute([':id' => $id]);
+
+ return (bool) $reponse->fetchColumn();
+  }
+
   public function getThisVehicule($id) {
     $reponse = $this->bdd->prepare('SELECT * FROM vehicule WHERE id_vehicule = :id');
     $reponse->execute([':id' => $id]);
