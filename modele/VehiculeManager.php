@@ -61,7 +61,7 @@ class VehiculeManager
   }
 
   public function updateVehicule($id,$type,$brand,$modele,$immatriculation,$price,$description) {
-    $reponse=$this->bdd->prepare('UPDATE vehicule set type=:type,brand=:brand,modele=:modele,immatriculation=:immatriculation,price=:price,decription=:description WHERE id_vehicule=:id');
+    $reponse=$this->bdd->prepare('UPDATE vehicule set type=:type,brand=:brand,modele=:modele,immatriculation=:immatriculation,price=:price,description=:description WHERE id_vehicule=:id');
     $reponse->execute(array(
 'id' => $id,
 'type' => $type,

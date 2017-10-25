@@ -30,9 +30,14 @@
 <label for="prix">Prix</label>
 <input class="form-control" type="number" name="prix" id="prix" value="<?php echo $vehicule->getPrice() ?>" required>
   </div>
+  <?php if(!empty($error)){?>
+  <small id="emailHelp" class="form-text text-muted col-12 text-center"><?php echo $error ?></small>
+    <?php
+  } ?>
   <div class="col-md-3 d-flex justify-content-around">
 
 
   <input type="submit" name="modifier" value="Modifier">
   </div>
+
 </form>
