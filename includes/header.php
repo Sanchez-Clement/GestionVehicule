@@ -21,7 +21,7 @@
       <header id='entete'>
         <nav class="navbar navbar bg-primary d-flex flex-row justify-content-between align-items-center">
           <a class="navbar-brand text-dark" href="accueil.php">Accueil</a>
-          <a class="nav-item text-dark" href=""><i class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
+          <a class="nav-item text-dark" href="../controleur/addVehicule.php"><i class="fa fa-plus-square fa-3x" aria-hidden="true"></i></a>
         </nav>
       </header>
 <main class="container">
