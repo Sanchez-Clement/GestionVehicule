@@ -4,45 +4,48 @@
  */
 class VehiculeManager
 {
-  protected $bdd;
-  function __construct($bdd)
-  {
-    $this->setBdd($bdd);
-  }
-  public function setBdd($bdd)
-  {
-    $this->bdd=$bdd;
-  }
-  public function getVehicules(){
-    $vehicules = [];
-    $reponse = $this->bdd->query('SELECT * FROM vehicule');
+    protected $bdd;
 
-    while ($donnees = $reponse->fetch(PDO::FETCH_ASSOC)) {
-      switch ($donnees['type']) {
-        case 'Moto':
-          $vehicules[]= new Moto($donnees);
-          break;
 
-        case 'Voiture':
-          $vehicules[]= new Voiture($donnees);
-          break;
-
-        case 'Camion':
-          $vehicules[]= new Camion($donnees);
-          break;
-
-        default:
-
-          break;
-      }
+    public function __construct($bdd)
+    {
+        $this->setBdd($bdd);
     }
 
-    return $vehicules;
-  }
+    /** Define bdd
+     *@param (bdd) Object PDO
+     *@return no return
+     */
+    public function setBdd($bdd)
+    {
+        $this->bdd=$bdd;
+    }
 
-  public function addVehicule($type,$brand,$modele,$immatriculation,$price,$description) {
-    $reponse=$this->bdd->prepare('INSERT INTO vehicule(type,brand,modele,immatriculation,price,description) VALUES(:type,:brand,:modele,:immatriculation,:price,:description)');
-    $reponse->execute(array(
+    /** Return all the vehicules in database
+     *@param empty
+     *@return array of objects
+     */
+    public function getVehicules()
+    {
+        $vehicules = [];
+        $reponse = $this->bdd->query('SELECT * FROM vehicule');
+
+        while ($donnees = $reponse->fetch(PDO::FETCH_ASSOC)) {
+          $vehicules[] = new $donnees['type']($donnees);
+        }
+
+        return $vehicules;
+    }
+
+
+    /** add a vehicule in the database
+     *@param int ($price) , string for the others
+     *@return empty
+     */
+    public function addVehicule($type, $brand, $modele, $immatriculation, $price, $description)
+    {
+        $reponse=$this->bdd->prepare('INSERT INTO vehicule(type,brand,modele,immatriculation,price,description) VALUES(:type,:brand,:modele,:immatriculation,:price,:description)');
+        $reponse->execute(array(
 'type' => $type,
 'brand' => $brand,
 'modele' => $modele,
@@ -51,18 +54,28 @@ class VehiculeManager
 'description' => $description
 
   ));
-  }
+    }
 
-  public function deleteVehicule($id) {
-    $reponse=$this->bdd->prepare('DELETE FROM vehicule WHERE id_vehicule = :id');
-    $reponse->execute(array (
+    /** delete a vehicule in database
+     *@param int ($id)
+     *@return empty
+     */
+    public function deleteVehicule($id)
+    {
+        $reponse=$this->bdd->prepare('DELETE FROM vehicule WHERE id_vehicule = :id');
+        $reponse->execute(array(
       'id' => $id
     ));
-  }
+    }
 
-  public function updateVehicule($id,$type,$brand,$modele,$immatriculation,$price,$description) {
-    $reponse=$this->bdd->prepare('UPDATE vehicule set type=:type,brand=:brand,modele=:modele,immatriculation=:immatriculation,price=:price,description=:description WHERE id_vehicule=:id');
-    $reponse->execute(array(
+    /** update a vehicule in database
+     *@param int ($id,$price) , string for the others
+     *@return empty
+     */
+    public function updateVehicule($id, $type, $brand, $modele, $immatriculation, $price, $description)
+    {
+        $reponse=$this->bdd->prepare('UPDATE vehicule set type=:type,brand=:brand,modele=:modele,immatriculation=:immatriculation,price=:price,description=:description WHERE id_vehicule=:id');
+        $reponse->execute(array(
 'id' => $id,
 'type' => $type,
 'brand' => $brand,
@@ -72,29 +85,42 @@ class VehiculeManager
 'description' => $description
 
   ));
-  }
+    }
 
-  public function existImmatriculation($immatriculation) {
-    $reponse= $this->bdd->prepare('SELECT COUNT(*) FROM vehicule WHERE immatriculation = :immatriculation');
- $reponse->execute([':immatriculation' => $immatriculation]);
+    /** check if the immatriculation is already in the database
+     *@param string ($immatriculation)
+     *@return boolean
+     */
+    public function existImmatriculation($immatriculation)
+    {
+        $reponse= $this->bdd->prepare('SELECT COUNT(*) FROM vehicule WHERE immatriculation = :immatriculation');
+        $reponse->execute([':immatriculation' => $immatriculation]);
 
- return (bool) $reponse->fetchColumn();
-  }
+        return (bool) $reponse->fetchColumn();
+    }
 
-  public function existId($id) {
-    $reponse= $this->bdd->prepare('SELECT COUNT(*) FROM vehicule WHERE id_vehicule = :id');
- $reponse->execute([':id' => $id]);
+    /** check if the id exist in the database
+     *@param int ($id)
+     *@return boolean
+     */
+    public function existId($id)
+    {
+        $reponse= $this->bdd->prepare('SELECT COUNT(*) FROM vehicule WHERE id_vehicule = :id');
+        $reponse->execute([':id' => $id]);
 
- return (bool) $reponse->fetchColumn();
-  }
+        return (bool) $reponse->fetchColumn();
+    }
 
-  public function getThisVehicule($id) {
-    $reponse = $this->bdd->prepare('SELECT * FROM vehicule WHERE id_vehicule = :id');
-    $reponse->execute([':id' => $id]);
-    $donnees = $reponse->fetch(PDO::FETCH_ASSOC);
-    $vehicule = new $donnees['type']($donnees);
-    return $vehicule;
-  }
+    /** get the vehicule selectionned
+     *@param int ($id)
+     *@return object
+     */
+    public function getThisVehicule($id)
+    {
+        $reponse = $this->bdd->prepare('SELECT * FROM vehicule WHERE id_vehicule = :id');
+        $reponse->execute([':id' => $id]);
+        $donnees = $reponse->fetch(PDO::FETCH_ASSOC);
+        $vehicule = new $donnees['type']($donnees);
+        return $vehicule;
+    }
 }
-
- ?>

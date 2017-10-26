@@ -2,7 +2,7 @@
 $error ="";
 require_once"../includes/header.php";
 require "../services/clean.php";
-require "../servives/chargerClasse.php";
+require "../services/chargerClasse.php";
 spl_autoload_register('chargerClasse');
 require "../modele/connexion_sql.php";
 require "../modele/VehiculeManager.php";
