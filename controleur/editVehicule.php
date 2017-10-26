@@ -46,9 +46,7 @@ if ($manager->existId($id)) {
             } else {
                 $error = 'Le numéro de plaque est déjà existant' ;
             }
-        } else {
-          require '../vue/editVehicule.php';
-        }
+        } 
     }
 
     require '../vue/editVehicule.php';
