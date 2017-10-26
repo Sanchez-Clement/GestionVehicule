@@ -1,5 +1,5 @@
 <h1 class="text-center">Gestion de véhicules</h1>
-<table class="table-hover table table-responsive" id="tablehome">
+<table class="table-hover table table-responsive display" id="tablehome">
 <thead >
   <th class="text-center">Type</th>
   <th class="text-center">Marque</th>

@@ -9,7 +9,7 @@
 
 
         <script src="https://use.fontawesome.com/01d5fc61d4.js"></script>
-
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
           <link rel="stylesheet" href="../css/bootstrap.css">

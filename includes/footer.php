@@ -3,6 +3,13 @@
 <script>
   window.jQuery || document.write('<script src="../js/vendor/jquery-1.12.0.min.js"><\/script>')
 </script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#tablehome').DataTable();
+} );
+
+</script>
 <script src="../js/plugins.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/bootstrap.js"></script>
