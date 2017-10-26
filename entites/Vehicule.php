@@ -11,12 +11,21 @@ abstract class Vehicule
     protected $immatriculation;
     protected $price;
     protected $description;
+
+
     public function __construct(array $donnees)
     {
         $this->type=static::class;
         $this->hydrate($donnees);
     }
 
+    /**
+     * call all the setters to define the object
+     *
+     * @param array
+     *
+     * @return empty
+     */
     public function hydrate(array $donnees)
     {
       foreach ($donnees as $key => $value) {
@@ -27,31 +36,85 @@ abstract class Vehicule
       }
     }
 
+    /**
+     * get the protected id
+     *
+     * @param empty
+     *
+     * @return int
+     */
     public function getId()
     {
         return $this->id_vehicule;
     }
 
+    /**
+     * get the protected type
+     *
+     * @param empty
+     *
+     * @return string
+     */
     public function getType()
     {
         return $this->type;
     }
+
+    /**
+     * get the protected brand
+     *
+     * @param empty
+     *
+     * @return string
+     */
     public function getBrand()
     {
         return $this->brand;
     }
+    /**
+     * get the protected modele
+     *
+     * @param empty
+     *
+     * @return string
+     */
+
     public function getModele()
     {
         return $this->modele;
     }
+
+    /**
+     * get the protected immatriculation
+     *
+     * @param empty
+     *
+     * @return string
+     */
     public function getImmatriculation()
     {
         return $this->immatriculation;
     }
+
+    /**
+     * get the protected price
+     *
+     * @param empty
+     *
+     * @return int
+     */
     public function getPrice()
     {
         return $this->price;
     }
+
+    /**
+     * get the protected description
+     *
+     * @param empty
+     *
+     * @return string
+     */
     public function getDescription()
     {
         return $this->description;
