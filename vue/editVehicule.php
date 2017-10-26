@@ -25,6 +25,7 @@
   <div class="form-group col-md-5">
     <label for="immatriculation">Immatriculation</label>
     <input class="form-control" type="text" name="immatriculation" id="immatriculation" value="<?php echo $vehicule->getImmatriculation() ?>" required>
+    <small id="immat" class="form-text text-muted col-12 text-center">Immatriculation de type : AH-303-LQ</small>
   </div>
 
   <div class="form-group col-md-7">

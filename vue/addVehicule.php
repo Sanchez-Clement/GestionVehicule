@@ -26,6 +26,7 @@
   <div class="form-group col-md-5">
     <label for="immatriculation">Immatriculation</label>
     <input class="form-control" type="text" name="immatriculation" id="immatriculation" value="" required>
+    <small id="immat" class="form-text text-muted col-12 text-center">Immatriculation de type : AH-303-LQ</small>
   </div>
 
   <div class="form-group col-md-7">
@@ -42,7 +43,7 @@
   <?php if(!empty($error)){?>
   <small id="emailHelp" class="form-text text-muted col-12 text-center"><?php echo $error ?></small>
   <?php } ?>
-  
+
     <div class="col-md-3 d-flex justify-content-around">
       <input type="submit" name="creer" value="Ajouter">
     </div>

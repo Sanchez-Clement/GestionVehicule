@@ -6,6 +6,7 @@ require "../services/chargerClasse.php";
 spl_autoload_register('chargerClasse');
 require "../modele/connexion_sql.php";
 require "../modele/VehiculeManager.php";
+require "../services/regexImmat.php";
 
 $id = (int)$_GET['id'];
 
@@ -25,6 +26,7 @@ if ($manager->existId($id)) {
 
 // Control if all the variales in $_POST are not empty and sanitize them
         Clean($_POST);
+        $error = typeImmat($_POST['immatriculation']) ;
 
         // If all the variables in $_PoST are full
         if (empty($error)) {
@@ -44,6 +46,8 @@ if ($manager->existId($id)) {
             } else {
                 $error = 'Le numéro de plaque est déjà existant' ;
             }
+        } else {
+          require '../vue/editVehicule.php';
         }
     }
 
