@@ -15,7 +15,7 @@
 
   <div class="form-group col-md-7">
     <label for="marque">Marque</label>
-    <input class="form-control" type="text" name="marque" id="marque" value="" required>
+    <input class="form-control" type="text" name="brand" id="marque" value="" required>
   </div>
 
   <div class="form-group col-md-5">
@@ -36,7 +36,7 @@
 
   <div class="form-group col-md-3">
     <label for="prix">Prix</label>
-    <input class="form-control" type="number" name="prix" id="prix" value="" required>
+    <input class="form-control" type="number" name="price" id="prix" value="" required>
   </div>
 
   <!-- if there are errors in the form (input empty or the immatriicualtion is already in the database) -->

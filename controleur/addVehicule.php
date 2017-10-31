@@ -23,16 +23,18 @@ if (isset($_POST['creer'])) {
     if (empty($error)) {
 
 
-        $type = $_POST['type'];
-        $brand = $_POST['marque'];
-        $modele = $_POST['modele'];
+        // $type = $_POST['type'];
+        // $brand = $_POST['marque'];
+        // $modele = $_POST['modele'];
         $immatriculation = $_POST['immatriculation'];
-        $price = (int)$_POST['prix'];
-        $description = $_POST['description'];
+        // $price = (int)$_POST['prix'];
+        // $description = $_POST['description'];
 
         // Check if the Immatriculation is already in the bdd
         if (!$manager->existImmatriculation($immatriculation)) {
-            $manager->addVehicule($type, $brand, $modele, $immatriculation, $price, $description);
+          $vehicule = new $_POST['type']($_POST);
+          var_dump($vehicule);
+            $manager->addVehicule($vehicule);
             header('Location: accueil.php');
         } else {
             $error = 'Le numéro de plaque est déjà existant' ;

@@ -42,16 +42,16 @@ class VehiculeManager
      *@param int ($price) , string for the others
      *@return empty
      */
-    public function addVehicule($type, $brand, $modele, $immatriculation, $price, $description)
+    public function addVehicule($vehicule)
     {
         $reponse=$this->bdd->prepare('INSERT INTO vehicule(type,brand,modele,immatriculation,price,description) VALUES(:type,:brand,:modele,:immatriculation,:price,:description)');
         $reponse->execute(array(
-'type' => $type,
-'brand' => $brand,
-'modele' => $modele,
-'immatriculation' => $immatriculation,
-'price' => $price,
-'description' => $description
+'type' => $vehicule->getType(),
+'brand' => $vehicule->getBrand(),
+'modele' => $vehicule->getModele(),
+'immatriculation' => $vehicule->getImmatriculation(),
+'price' => $vehicule->getPrice(),
+'description' => $vehicule->getDescription()
 
   ));
     }
