@@ -14,7 +14,7 @@
 
   <div class="form-group col-md-7">
     <label for="marque">Marque</label>
-    <input class="form-control" type="text" name="marque" id="marque" value="<?php echo $vehicule->getBrand() ?>" required>
+    <input class="form-control" type="text" name="brand" id="marque" value="<?php echo $vehicule->getBrand() ?>" required>
   </div>
 
   <div class="form-group col-md-5">
@@ -35,7 +35,7 @@
 
   <div class="form-group col-md-3">
     <label for="prix">Prix</label>
-    <input class="form-control" type="number" name="prix" id="prix" value="<?php echo $vehicule->getPrice() ?>" required>
+    <input class="form-control" type="number" name="price" id="prix" value="<?php echo $vehicule->getPrice() ?>" required>
   </div>
 
   <?php if(!empty($error)){?>

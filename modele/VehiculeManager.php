@@ -39,7 +39,7 @@ class VehiculeManager
 
 
     /** add a vehicule in the database
-     *@param int ($price) , string for the others
+     *@param array
      *@return empty
      */
     public function addVehicule($vehicule)
@@ -69,20 +69,20 @@ class VehiculeManager
     }
 
     /** update a vehicule in database
-     *@param int ($id,$price) , string for the others
+     *@param int ($id) , array for the others
      *@return empty
      */
-    public function updateVehicule($id, $type, $brand, $modele, $immatriculation, $price, $description)
+    public function updateVehicule($id,$vehicule)
     {
         $reponse=$this->bdd->prepare('UPDATE vehicule set type=:type,brand=:brand,modele=:modele,immatriculation=:immatriculation,price=:price,description=:description WHERE id_vehicule=:id');
         $reponse->execute(array(
 'id' => $id,
-'type' => $type,
-'brand' => $brand,
-'modele' => $modele,
-'immatriculation' => $immatriculation,
-'price' => $price,
-'description' => $description
+'type' => $vehicule->getType(),
+'brand' => $vehicule->getBrand(),
+'modele' => $vehicule->getModele(),
+'immatriculation' => $vehicule->getImmatriculation(),
+'price' => $vehicule->getPrice(),
+'description' => $vehicule->getDescription()
 
   ));
     }

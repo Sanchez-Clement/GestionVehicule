@@ -30,23 +30,25 @@ if ($manager->existId($id)) {
 
         // If all the variables in $_PoST are full
         if (empty($error)) {
-            $type = $_POST['type'];
-            $brand = $_POST['marque'];
-            $modele = $_POST['modele'];
+            // $type = $_POST['type'];
+            // $brand = $_POST['marque'];
+            // $modele = $_POST['modele'];
             $immatriculation = $_POST['immatriculation'];
-            $price = (int)$_POST['prix'];
-            $description = $_POST['description'];
+            // $price = (int)$_POST['prix'];
+            // $description = $_POST['description'];
 
             // Check if the Immatriculation is already in the bdd or it is the same immatriculation
             if (!$manager->existImmatriculation($immatriculation) or $vehicule->getImmatriculation()==$immatriculation) {
 
+                $vehicule = new $_POST['type']($_POST);
               // update the vehicule in bdd
-                $manager->updateVehicule($id, $type, $brand, $modele, $immatriculation, $price, $description);
+
+                $manager->updateVehicule($id,$vehicule);
                 header('Location: accueil.php');
             } else {
                 $error = 'Le numéro de plaque est déjà existant' ;
             }
-        } 
+        }
     }
 
     require '../vue/editVehicule.php';

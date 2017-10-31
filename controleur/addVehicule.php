@@ -33,7 +33,7 @@ if (isset($_POST['creer'])) {
         // Check if the Immatriculation is already in the bdd
         if (!$manager->existImmatriculation($immatriculation)) {
           $vehicule = new $_POST['type']($_POST);
-          var_dump($vehicule);
+
             $manager->addVehicule($vehicule);
             header('Location: accueil.php');
         } else {
